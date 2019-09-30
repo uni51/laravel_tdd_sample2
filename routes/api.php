@@ -18,6 +18,10 @@ Route::get('customers', function () {
 });
 
 Route::post('customers', function (\Illuminate\Http\Request $request) {
+    // 仮実装
+    if(!$request->json('name')) {
+        return response()->json([], \Illuminate\Http\Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
     $customer = new \App\Customer();
     $customer->name = $request->json('name');
     $customer->save();
