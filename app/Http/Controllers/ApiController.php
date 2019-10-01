@@ -11,9 +11,13 @@ class ApiController extends Controller
         return response()->json(\App\Customer::query()->select(['id', 'name'])->get());
     }
 
-    public function postCustomer(Request $request)
+    public function postCustomers(Request $request)
     {
-        $this->validate($request, ['name' => 'required']);
+        $this->validate(
+            $request,
+            ['name' => 'required'],
+            ['name.required' => ':attributeは必須項目です']
+            );
         $customer = new \App\Customer();
         $customer->name = $request->json('name');
         $customer->save();

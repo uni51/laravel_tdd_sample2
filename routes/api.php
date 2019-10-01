@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('customers', 'ApiController@getCustomers');
-Route::post('customers', 'ApiController@postCustomer');
+Route::post('customers', 'ApiController@postCustomers');
 
 Route::get('customers/{customer_id}', 'ApiController@getCustomer');
 Route::put('customers/{customer_id}', 'ApiController@putCustomer');
